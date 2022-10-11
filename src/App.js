@@ -1,21 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import {InputWithIcon} from './components/Form';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Convert <b><code>ETH_Private_Key</code></b> 👉 <b><code>Stark_Key</code></b>.
         </p>
+        <InputWithIcon/>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/strayder-io/stark-key-dydx"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Github • Open Source Code
         </a>
       </header>
     </div>
