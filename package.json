@@ -28,7 +28,8 @@
     "xhr2-cookies": "^1.1.0"
   },
   "scripts": {
-    "start": "GENERATE_SOURCEMAP=false react-app-rewired start"
+    "start": "GENERATE_SOURCEMAP=false react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build"
   },
   "eslintConfig": {
     "extends": [
