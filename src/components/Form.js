@@ -34,17 +34,21 @@ export function InputWithIcon() {
     const convertToStark = async () => {
         const starkKey = ethKey;
         setEthKey('');
-        console.log(starkKey);
-        const web3 = new Web3();
-        const account = web3.eth.accounts.privateKeyToAccount('0x' + starkKey);
-        web3.eth.accounts.wallet.add(account);
-        web3.eth.defaultAccount = account.address;
-        const clientByWeb3 = new DydxClient('https://api.dydx.exchange', {web3: web3});
-        const apiKey = {
-            starkPrivateKey: await clientByWeb3.onboarding.deriveStarkKey(account.address),
-            apiKeyCredentials: await clientByWeb3.onboarding.recoverDefaultApiCredentials(account.address),
+        try {
+            const web3 = new Web3();
+            const account = web3.eth.accounts.privateKeyToAccount('0x' + starkKey);
+            web3.eth.accounts.wallet.add(account);
+            web3.eth.defaultAccount = account.address;
+            const clientByWeb3 = new DydxClient('https://api.dydx.exchange', {web3: web3});
+            const apiKey = {
+                starkPrivateKey: await clientByWeb3.onboarding.deriveStarkKey(account.address),
+                apiKeyCredentials: await clientByWeb3.onboarding.recoverDefaultApiCredentials(account.address),
+            }
+            setStarkKey(JSON.stringify(apiKey));
+        } catch (e) {
+            console.error("ERROR", e);
+            setStarkKey(e.message);
         }
-        setStarkKey(JSON.stringify(apiKey));
         setOpenModal(true);
     }
 

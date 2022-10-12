@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-module.exports = function override(config, env) {
 
+module.exports = function override(config, env) {
     config.resolve.fallback = {
         url: require.resolve('url'),
         assert: require.resolve('assert'),
@@ -17,6 +17,5 @@ module.exports = function override(config, env) {
             Buffer: ['buffer', 'Buffer'],
         }),
     );
-
     return config;
 }
