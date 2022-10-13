@@ -43,6 +43,7 @@ export function InputWithIcon() {
             const apiKey = {
                 starkPrivateKey: await clientByWeb3.onboarding.deriveStarkKey(account.address),
                 apiKeyCredentials: await clientByWeb3.onboarding.recoverDefaultApiCredentials(account.address),
+                accountAddress: account.address
             }
             setStarkKey(JSON.stringify(apiKey));
         } catch (e) {
